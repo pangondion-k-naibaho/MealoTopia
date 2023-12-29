@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.LoginActivity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivAppsIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mealotopia_logo"/>
+
+    <TextView
+        android:id="@+id/tvAppsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAppsIcon"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/ingriddarlingregular"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:text="@string/appsName"/>
+
+    <EditText
+        android:id="@+id/etEmailLogin"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppsName"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:padding="5dp"
+        android:hint="@string/etHintEmail"
+        android:background="@drawable/bg_primary"/>
+
+    <TextView
+        android:id="@+id/tvWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/etEmailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin"
+        android:layout_marginStart="10dp"
+        android:textSize="12sp"
+        android:textColor="@color/red"
+        android:text="@string/tvWarning_Email"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/etPasswordLogin"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:hint="@string/etHintPassword"
+        android:background="@drawable/bg_primary"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_roundedsquare_blueplaza"
+        android:gravity="center"
+        android:text="@string/btnTxt_Login"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+
+    <ProgressBar
+        android:id="@+id/pbLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminateTint="@color/blue_plaza"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

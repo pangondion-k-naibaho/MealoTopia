@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Meal o\'Topia</string>
+    <string name="appsName">Meal o\'Topia</string>
+    <string name="etHintEmail">Email</string>
+    <string name="etHintPassword">Password</string>
+    <string name="btnTxt_Login">Login</string>
+    <string name="tvPopupDescDummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="tvPopupDescWarning">We\'re Sorry, an error occurred.\nPlease check again email and password entered</string>
+    <string name="tvPopupDescSuccess">Welcome to Meal o\'Topia.\nHave fun exploring here</string>
+    <string name="btnTxt_Popup">OK</string>
+    <string name="tvDummyWarning_Email">Dummy Warning</string>
+    <string name="tvWarning_Email"><sup>*</sup>Please input according to the email format</string>
+</resources>
