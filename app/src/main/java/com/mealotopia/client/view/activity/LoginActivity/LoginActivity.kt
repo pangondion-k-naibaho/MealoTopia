@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.mealotopia.client.R
 import com.mealotopia.client.databinding.ActivityMainBinding
+import com.mealotopia.client.model.Constants.PREFERENCES.Companion.EMAIL_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_PREFERENCES
 import com.mealotopia.client.model.data_class.LoginResponse
@@ -121,6 +122,7 @@ class LoginActivity : AppCompatActivity() {
         val sharedPreferences = this@LoginActivity.getSharedPreferences(TOKEN_PREFERENCES, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString(TOKEN_KEY, response.token)
+        editor.putString(EMAIL_KEY, emailRetrieved)
         editor.apply()
         editor.apply{
             Log.d(TAG, "isCommit: ${commit()}")

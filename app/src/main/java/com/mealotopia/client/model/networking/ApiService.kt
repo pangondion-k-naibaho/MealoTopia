@@ -15,6 +15,9 @@ interface LoginApiService {
         @Field("password") password: String
     ): Call<LoginResponse>
 
+    @POST("api/logout")
+    fun logoutUser(): Call<Void>
+
 }
 
 interface MealApiService{

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_listMeal"
+            android:icon="@drawable/ic_meal_blue"
+            android:title="List of Meal"/>
+
+        <item
+            android:id="@+id/menu_listUser"
+            android:icon="@drawable/ic_userbox_blue"
+            android:title="List of User"/>
+
+        <item
+            android:id="@+id/menu_listSavedMeal"
+            android:icon="@drawable/ic_saved_food_blue"
+            android:title="Saved Meal"/>
+
+        <item
+            android:title="">
+            <menu>
+                <item android:id="@+id/menu_logout"
+                    android:icon="@drawable/ic_logout_blue"
+                    android:title="Logout"/>
+            </menu>
+        </item>
+
+    </group>
+
+</menu>

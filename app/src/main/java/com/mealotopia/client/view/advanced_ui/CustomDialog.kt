@@ -5,6 +5,8 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.Window
 import androidx.core.content.ContextCompat
 import com.mealotopia.client.R
@@ -22,6 +24,7 @@ fun Activity.showPopupDialog(
     val dialog = Dialog(this)
     val binding = PopupLayoutBinding.bind(layoutInflater.inflate(R.layout.popup_layout, null))
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.window?.setLayout(MATCH_PARENT, WRAP_CONTENT)
     dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     dialog.setContentView(binding.root)
     dialog.setCancelable(listener == null)

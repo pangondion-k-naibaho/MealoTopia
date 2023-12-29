@@ -12,6 +12,7 @@ class Constants {
         companion object{
             const val TOKEN_PREFERENCES = "TOKEN_PREFERENCES"
             const val TOKEN_KEY = "11517066"
+            const val EMAIL_KEY = "EMAIL_KEY"
         }
     }
 }

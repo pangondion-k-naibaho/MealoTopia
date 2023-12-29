@@ -10,4 +10,8 @@
     <string name="btnTxt_Popup">OK</string>
     <string name="tvDummyWarning_Email">Dummy Warning</string>
     <string name="tvWarning_Email"><sup>*</sup>Please input according to the email format</string>
+    <string name="tvWarning_Logout">Are you sure want to Log out ?</string>
+    <string name="tvSuccess_Logout">You have logged out. Don\'t hesitate to visit us again</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
