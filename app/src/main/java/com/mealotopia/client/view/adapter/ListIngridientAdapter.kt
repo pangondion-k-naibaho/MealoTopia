@@ -17,7 +17,7 @@ class ListIngridientAdapter(
             val binding = ItemRvIngridientsLayoutBinding.bind(itemView)
             binding.apply {
                 tvIngridient.text = item.ingridientName
-                tvMeasure.text = item.ingridientMeasure
+                tvMeasure.text = "(${item.ingridientMeasure})"
             }
         }
     }

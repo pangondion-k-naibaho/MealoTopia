@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.mealotopia.client.R
@@ -42,26 +43,26 @@ class DetailMealActivity : AppCompatActivity() {
         Log.d(TAG, "deliveredMealResponse: ${deliveredMealResponse}")
 
         val rawListMealIngridient = listOf<MealIngridients>(
-            MealIngridients(deliveredMealResponse.strIngridient1, deliveredMealResponse.strMeasure1),
-            MealIngridients(deliveredMealResponse.strIngridient2, deliveredMealResponse.strMeasure2),
-            MealIngridients(deliveredMealResponse.strIngridient3, deliveredMealResponse.strMeasure3),
-            MealIngridients(deliveredMealResponse.strIngridient4, deliveredMealResponse.strMeasure4),
-            MealIngridients(deliveredMealResponse.strIngridient5, deliveredMealResponse.strMeasure5),
-            MealIngridients(deliveredMealResponse.strIngridient6, deliveredMealResponse.strMeasure6),
-            MealIngridients(deliveredMealResponse.strIngridient7, deliveredMealResponse.strMeasure7),
-            MealIngridients(deliveredMealResponse.strIngridient8, deliveredMealResponse.strMeasure8),
-            MealIngridients(deliveredMealResponse.strIngridient9, deliveredMealResponse.strMeasure9),
-            MealIngridients(deliveredMealResponse.strIngridient10, deliveredMealResponse.strMeasure10),
-            MealIngridients(deliveredMealResponse.strIngridient11, deliveredMealResponse.strMeasure11),
-            MealIngridients(deliveredMealResponse.strIngridient12, deliveredMealResponse.strMeasure12),
-            MealIngridients(deliveredMealResponse.strIngridient13, deliveredMealResponse.strMeasure13),
-            MealIngridients(deliveredMealResponse.strIngridient14, deliveredMealResponse.strMeasure14),
-            MealIngridients(deliveredMealResponse.strIngridient15, deliveredMealResponse.strMeasure15),
-            MealIngridients(deliveredMealResponse.strIngridient16, deliveredMealResponse.strMeasure16),
-            MealIngridients(deliveredMealResponse.strIngridient17, deliveredMealResponse.strMeasure17),
-            MealIngridients(deliveredMealResponse.strIngridient18, deliveredMealResponse.strMeasure18),
-            MealIngridients(deliveredMealResponse.strIngridient19, deliveredMealResponse.strMeasure19),
-            MealIngridients(deliveredMealResponse.strIngridient20, deliveredMealResponse.strMeasure20)
+            MealIngridients(deliveredMealResponse.strIngredient1, deliveredMealResponse.strMeasure1),
+            MealIngridients(deliveredMealResponse.strIngredient2, deliveredMealResponse.strMeasure2),
+            MealIngridients(deliveredMealResponse.strIngredient3, deliveredMealResponse.strMeasure3),
+            MealIngridients(deliveredMealResponse.strIngredient4, deliveredMealResponse.strMeasure4),
+            MealIngridients(deliveredMealResponse.strIngredient5, deliveredMealResponse.strMeasure5),
+            MealIngridients(deliveredMealResponse.strIngredient6, deliveredMealResponse.strMeasure6),
+            MealIngridients(deliveredMealResponse.strIngredient7, deliveredMealResponse.strMeasure7),
+            MealIngridients(deliveredMealResponse.strIngredient8, deliveredMealResponse.strMeasure8),
+            MealIngridients(deliveredMealResponse.strIngredient9, deliveredMealResponse.strMeasure9),
+            MealIngridients(deliveredMealResponse.strIngredient10, deliveredMealResponse.strMeasure10),
+            MealIngridients(deliveredMealResponse.strIngredient11, deliveredMealResponse.strMeasure11),
+            MealIngridients(deliveredMealResponse.strIngredient12, deliveredMealResponse.strMeasure12),
+            MealIngridients(deliveredMealResponse.strIngredient13, deliveredMealResponse.strMeasure13),
+            MealIngridients(deliveredMealResponse.strIngredient14, deliveredMealResponse.strMeasure14),
+            MealIngridients(deliveredMealResponse.strIngredient15, deliveredMealResponse.strMeasure15),
+            MealIngridients(deliveredMealResponse.strIngredient16, deliveredMealResponse.strMeasure16),
+            MealIngridients(deliveredMealResponse.strIngredient17, deliveredMealResponse.strMeasure17),
+            MealIngridients(deliveredMealResponse.strIngredient18, deliveredMealResponse.strMeasure18),
+            MealIngridients(deliveredMealResponse.strIngredient19, deliveredMealResponse.strMeasure19),
+            MealIngridients(deliveredMealResponse.strIngredient20, deliveredMealResponse.strMeasure20)
         )
 
         cleanListMealIngridient = filterListIngridients(rawListMealIngridient)
@@ -75,7 +76,7 @@ class DetailMealActivity : AppCompatActivity() {
             tvMealName.text = deliveredMealResponse.strMeal
 
             rvMealIngridient.apply {
-                layoutManager = LinearLayoutManager(this@DetailMealActivity)
+                layoutManager = GridLayoutManager(this@DetailMealActivity, 2)
                 adapter = ListIngridientAdapter(cleanListMealIngridient.toMutableList())
             }
 
