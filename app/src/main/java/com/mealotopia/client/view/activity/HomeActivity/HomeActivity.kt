@@ -22,6 +22,8 @@ import com.mealotopia.client.databinding.DrawerHeaderLayoutBinding
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.EMAIL_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_PREFERENCES
+import com.mealotopia.client.model.data_class.meal.DetailMealResponse
+import com.mealotopia.client.view.activity.DetailMealActivity.DetailMealActivity
 import com.mealotopia.client.view.activity.HomeActivity.fragment.ListMealFragment
 import com.mealotopia.client.view.activity.HomeActivity.fragment.ListUserFragment
 import com.mealotopia.client.view.activity.HomeActivity.fragment.SavedMealFragment
@@ -171,6 +173,13 @@ class HomeActivity : AppCompatActivity(), HomeCommunicator {
 
     override fun onListDisplayingLoadingFinished() {
         setUpLoading(false)
+    }
+
+    override fun onDeliverMealToDetail(deliveredMeal: DetailMealResponse) {
+        startActivity(
+            DetailMealActivity.newIntent(this@HomeActivity, deliveredMeal)
+        )
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
 }

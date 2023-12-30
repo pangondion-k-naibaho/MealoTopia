@@ -71,7 +71,7 @@ class ListMealFragment : Fragment() {
             listMeal.meals!!.toMutableList(),
             object: ListMealAdapter.ItemListener{
                 override fun onItemClicked(item: DetailMealResponse) {
-                    Toast.makeText(this@ListMealFragment.requireActivity(), "item Clicked", Toast.LENGTH_SHORT).show()
+                    homeCommunicator.onDeliverMealToDetail(item)
                 }
             })
 

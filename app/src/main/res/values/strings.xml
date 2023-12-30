@@ -20,4 +20,7 @@
     <string name="tvItem_DummyFoodCategory">Dummy Food Category</string>
     <string name="tvItem_DummyFoodInstructions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim diam vulputate ut pharetra sit amet. Mattis pellentesque id nibh tortor.</string>
     <string name="tvIsv_Hint">Type food you want to see…</string>
+    <string name="tvDetail_DummyMealName">Dummy Meal Name</string>
+    <string name="tvRv_DummyIngridientName">Dummy Ingridient Name</string>
+    <string name="tvRv_DummyMeasure">(Dummy Measure)</string>
 </resources>
