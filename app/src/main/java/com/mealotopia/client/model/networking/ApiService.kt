@@ -1,7 +1,9 @@
 package com.mealotopia.client.model.networking
 
+import com.mealotopia.client.model.data_class.meal.ListMealResponse
 import com.mealotopia.client.model.data_class.user.ListUserResponse
 import com.mealotopia.client.model.data_class.user.LoginResponse
+import com.mealotopia.client.view.activity.HomeActivity.fragment.ListMealFragment
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -30,5 +32,9 @@ interface LoginApiService {
 }
 
 interface MealApiService{
+    @GET("search.php")
+    fun getListFood(
+        @Query("s") search: String
+    ): Call<ListMealResponse>
 
 }

@@ -4,10 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mealotopia.client.model.data_class.meal.ListMealResponse
 import com.mealotopia.client.model.data_class.user.ListUserResponse
 import com.mealotopia.client.model.networking.ApiConfig
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class HomeViewModel: ViewModel() {
     private val TAG = LoginViewModel::class.java.simpleName
@@ -35,6 +37,12 @@ class HomeViewModel: ViewModel() {
 
     private var _isGettingListUserFail = MutableLiveData<Boolean>()
     val isGettingListUserFail : LiveData<Boolean> = _isGettingListUserFail
+
+    private var _listMealResponse = MutableLiveData<ListMealResponse>()
+    val listMealResponse : LiveData<ListMealResponse> = _listMealResponse
+
+    private var _listMealResponse2 = MutableLiveData<ListMealResponse>()
+    val listMealResponse2 : LiveData<ListMealResponse> = _listMealResponse2
 
     fun logOutUser(){
         _isLoading.value = true
@@ -99,7 +107,7 @@ class HomeViewModel: ViewModel() {
                 _isGettingListUserLoading.value = false
                 if(response.isSuccessful){
                     _listUserResponse2.value = response.body()
-                    Log.d(TAG, "Successs")
+                    Log.d(TAG, "Success")
                 }else{
                     _isGettingListUserFail.value = true
                     Log.e(TAG,"onFailure: ${response.message()}")
@@ -109,6 +117,60 @@ class HomeViewModel: ViewModel() {
             override fun onFailure(call: Call<ListUserResponse>, t: Throwable) {
                 _isGettingListUserLoading.value = false
                 _isGettingListUserFail.value = true
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    fun getListMeal(input: String){
+        _isLoading.value = true
+        val client = ApiConfig.getMealApiService().getListFood(input)
+        client.enqueue(object: retrofit2.Callback<ListMealResponse>{
+            override fun onResponse(
+                call: Call<ListMealResponse>,
+                response: Response<ListMealResponse>
+            ) {
+                _isLoading.value = false
+                if(response.isSuccessful){
+                    _listMealResponse.value = response.body()
+                    Log.d(TAG, "Success")
+                }else{
+                    _isFail.value = true
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ListMealResponse>, t: Throwable) {
+                _isLoading.value = false
+                _isFail.value = true
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    fun getListMealMore(input: String){
+        _isLoading.value = true
+        val client = ApiConfig.getMealApiService().getListFood(input)
+        client.enqueue(object: retrofit2.Callback<ListMealResponse>{
+            override fun onResponse(
+                call: Call<ListMealResponse>,
+                response: Response<ListMealResponse>
+            ) {
+                _isLoading.value = false
+                if(response.isSuccessful){
+                    _listMealResponse2.value = response.body()
+                    Log.d(TAG, "Success")
+                }else{
+                    _isFail.value = true
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ListMealResponse>, t: Throwable) {
+                _isLoading.value = false
+                _isFail.value = true
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
 

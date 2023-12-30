@@ -61,7 +61,7 @@ class ListUserFragment : Fragment() {
         })
 
         homeViewModel.isGettingListUserLoading.observe(this@ListUserFragment.requireActivity(), {
-            if(it) homeCommunicator.onListUserLoadingStarted() else homeCommunicator.onListUserLoadingFinished()
+            if(it) homeCommunicator.onListDisplayingLoadingStarted() else homeCommunicator.onListDisplayingLoadingFinished()
         })
     }
 

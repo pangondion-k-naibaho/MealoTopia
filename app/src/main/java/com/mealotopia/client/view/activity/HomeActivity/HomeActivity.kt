@@ -165,20 +165,12 @@ class HomeActivity : AppCompatActivity(), HomeCommunicator {
         retrievedEmail = null
     }
 
-    override fun onListUserLoadingStarted() {
+    override fun onListDisplayingLoadingStarted() {
         setUpLoading(true)
     }
 
-    override fun onListUserLoadingFinished() {
+    override fun onListDisplayingLoadingFinished() {
         setUpLoading(false)
     }
 
-
-//    override fun sendStatusLoadingToHome(isLoading: Boolean) {
-//        if(isLoading) setUpLoading(isLoading)
-//
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            setUpLoading(!isLoading)
-//        },5000)
-//    }
 }

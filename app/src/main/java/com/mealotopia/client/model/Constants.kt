@@ -4,7 +4,7 @@ class Constants {
     interface URL_CONSTANTS{
         companion object{
             const val LOGINBASEURL = "https://reqres.in/"
-            const val MEALBASEURL = "www.themealdb.com/api/json/v1/1/"
+            const val MEALBASEURL = "https://www.themealdb.com/api/json/v1/1/"
         }
     }
 
