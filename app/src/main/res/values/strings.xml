@@ -14,4 +14,6 @@
     <string name="tvSuccess_Logout">You have logged out. Don\'t hesitate to visit us again</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvIItemUser_DummyName">Dummy Name</string>
+    <string name="tvIItemUser_DummyEmail">dummy_email@email.com</string>
 </resources>

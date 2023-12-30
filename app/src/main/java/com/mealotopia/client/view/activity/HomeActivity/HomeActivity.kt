@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -28,7 +30,7 @@ import com.mealotopia.client.view.advanced_ui.PopupDialogListener
 import com.mealotopia.client.view.advanced_ui.showPopupDialog
 import com.mealotopia.client.viewmodel.HomeViewModel
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeCommunicator {
     private lateinit var binding : ActivityHomeBinding
     private val TAG = HomeActivity::class.java.simpleName
 
@@ -162,4 +164,21 @@ class HomeActivity : AppCompatActivity() {
         super.onDestroy()
         retrievedEmail = null
     }
+
+    override fun onListUserLoadingStarted() {
+        setUpLoading(true)
+    }
+
+    override fun onListUserLoadingFinished() {
+        setUpLoading(false)
+    }
+
+
+//    override fun sendStatusLoadingToHome(isLoading: Boolean) {
+//        if(isLoading) setUpLoading(isLoading)
+//
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            setUpLoading(!isLoading)
+//        },5000)
+//    }
 }

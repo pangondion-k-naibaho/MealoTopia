@@ -1,10 +1,14 @@
 package com.mealotopia.client.model.networking
 
-import com.mealotopia.client.model.data_class.LoginResponse
+import com.mealotopia.client.model.data_class.user.ListUserResponse
+import com.mealotopia.client.model.data_class.user.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface LoginApiService {
 
@@ -17,6 +21,11 @@ interface LoginApiService {
 
     @POST("api/logout")
     fun logoutUser(): Call<Void>
+
+    @GET("api/users")
+    fun getListUser(
+        @Query("page") page: Int
+    ): Call<ListUserResponse>
 
 }
 

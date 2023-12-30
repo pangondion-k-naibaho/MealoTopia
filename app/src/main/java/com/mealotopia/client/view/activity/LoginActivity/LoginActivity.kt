@@ -7,7 +7,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,7 +15,7 @@ import com.mealotopia.client.databinding.ActivityMainBinding
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.EMAIL_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
 import com.mealotopia.client.model.Constants.PREFERENCES.Companion.TOKEN_PREFERENCES
-import com.mealotopia.client.model.data_class.LoginResponse
+import com.mealotopia.client.model.data_class.user.LoginResponse
 import com.mealotopia.client.view.activity.HomeActivity.HomeActivity
 import com.mealotopia.client.view.advanced_ui.PopupDialogListener
 import com.mealotopia.client.view.advanced_ui.showPopupDialog

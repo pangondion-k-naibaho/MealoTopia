@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mealotopia.client.model.data_class.user.ListUserResponse
 import com.mealotopia.client.model.networking.ApiConfig
 import retrofit2.Call
 import retrofit2.Response
@@ -22,6 +23,18 @@ class HomeViewModel: ViewModel() {
 
     private var _isSuccess = MutableLiveData<Boolean>()
     val isSuccess : LiveData<Boolean> = _isSuccess
+
+    private var _listUserResponse = MutableLiveData<ListUserResponse>()
+    val listUserResponse : LiveData<ListUserResponse> = _listUserResponse
+
+    private var _listUserResponse2 = MutableLiveData<ListUserResponse>()
+    val listUserResponse2 : LiveData<ListUserResponse> = _listUserResponse2
+
+    private var _isGettingListUserLoading = MutableLiveData<Boolean>()
+    val isGettingListUserLoading: LiveData<Boolean> = _isGettingListUserLoading
+
+    private var _isGettingListUserFail = MutableLiveData<Boolean>()
+    val isGettingListUserFail : LiveData<Boolean> = _isGettingListUserFail
 
     fun logOutUser(){
         _isLoading.value = true
@@ -42,6 +55,60 @@ class HomeViewModel: ViewModel() {
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 _isLoading.value = false
                 _isFail.value = true
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    fun getListUser(page: Int){
+        _isGettingListUserLoading.value = true
+        val client = ApiConfig.getAuthenticationApiService().getListUser(page)
+        client.enqueue(object: retrofit2.Callback<ListUserResponse>{
+            override fun onResponse(
+                call: Call<ListUserResponse>,
+                response: Response<ListUserResponse>
+            ) {
+                _isGettingListUserLoading.value = false
+                if(response.isSuccessful){
+                    _listUserResponse.value = response.body()
+                    Log.d(TAG, "Successs")
+                }else{
+                    _isGettingListUserFail.value = true
+                    Log.e(TAG,"onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ListUserResponse>, t: Throwable) {
+                _isGettingListUserLoading.value = false
+                _isGettingListUserFail.value = true
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    fun getListUserMore(page: Int){
+        _isGettingListUserLoading.value = true
+        val client = ApiConfig.getAuthenticationApiService().getListUser(page)
+        client.enqueue(object: retrofit2.Callback<ListUserResponse>{
+            override fun onResponse(
+                call: Call<ListUserResponse>,
+                response: Response<ListUserResponse>
+            ) {
+                _isGettingListUserLoading.value = false
+                if(response.isSuccessful){
+                    _listUserResponse2.value = response.body()
+                    Log.d(TAG, "Successs")
+                }else{
+                    _isGettingListUserFail.value = true
+                    Log.e(TAG,"onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ListUserResponse>, t: Throwable) {
+                _isGettingListUserLoading.value = false
+                _isGettingListUserFail.value = true
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
 

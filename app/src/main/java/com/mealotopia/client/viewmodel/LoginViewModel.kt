@@ -1,11 +1,10 @@
 package com.mealotopia.client.viewmodel
 
-import android.support.v4.os.IResultReceiver._Parcel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mealotopia.client.model.data_class.LoginResponse
+import com.mealotopia.client.model.data_class.user.LoginResponse
 import com.mealotopia.client.model.networking.ApiConfig
 import retrofit2.Call
 import retrofit2.Response
