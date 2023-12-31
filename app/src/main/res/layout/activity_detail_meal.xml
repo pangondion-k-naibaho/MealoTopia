@@ -12,12 +12,21 @@
         android:layout_height="wrap_content"
         app:menu="@menu/detail_meal_menu"
         android:background="@color/blue_plaza"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:id="@+id/ivMeal"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailToolbar"
@@ -31,6 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivMeal"
+        app:layout_constraintBottom_toTopOf="@+id/svDetailMeal"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/italianbreakfastregular"
         android:textSize="40sp"
@@ -52,27 +62,31 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clInsideSv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMealIngridient"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_rv_ingridients_layout"/>
+                app:layout_constraintBottom_toTopOf="@+id/tvInstruction"
+                tools:ignore="MissingConstraints"
+                tools:listitem="@layout/item_rv_ingridients_layout" />
 
             <TextView
                 android:id="@+id/tvInstruction"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvMealIngridient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvItem_DummyFoodInstructions"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:text="@string/tvItem_DummyFoodInstructions"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvMealIngridient"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="10dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

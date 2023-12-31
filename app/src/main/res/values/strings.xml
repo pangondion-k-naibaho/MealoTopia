@@ -23,4 +23,5 @@
     <string name="tvDetail_DummyMealName">Dummy Meal Name</string>
     <string name="tvRv_DummyIngridientName">Dummy Ingridient Name</string>
     <string name="tvRv_DummyMeasure">(Dummy Measure)</string>
+    <string name="tvToolbarTitle">Detail Meal</string>
 </resources>
