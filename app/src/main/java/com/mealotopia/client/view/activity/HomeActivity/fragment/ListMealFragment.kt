@@ -84,7 +84,6 @@ class ListMealFragment : Fragment() {
             setTextHelper(getString(R.string.tvIsv_Hint))
             setListener(object: InputSearchView.InputSearchListener{
                 override fun onClickSearch() {
-                    Toast.makeText(this@ListMealFragment.requireActivity(), "Search : ${getText()}", Toast.LENGTH_SHORT).show()
                     inputString = getText()
 
                     homeViewModel.getListMealMore(inputString!!)
@@ -92,12 +91,23 @@ class ListMealFragment : Fragment() {
                     homeViewModel.listMealResponse2.observe(this@ListMealFragment.requireActivity(), {listMeal2->
                         if(listMeal2.meals != null){
                             mealAdapter.updateItem(listMeal2.meals!!)
+                        }else{
+                            Toast.makeText(this@ListMealFragment.requireActivity(), "$inputString shows no result", Toast.LENGTH_SHORT).show()
                         }
                     })
                 }
 
                 override fun onClearSearch() {
                     clearText()
+
+                    homeViewModel.getListMealMore("a")
+
+                    homeViewModel.listMealResponse2.observe(this@ListMealFragment.requireActivity(), {listMeal2->
+                        if(listMeal2.meals != null){
+                            mealAdapter.updateItem(listMeal2.meals!!)
+                        }
+                    })
+
                 }
 
             })

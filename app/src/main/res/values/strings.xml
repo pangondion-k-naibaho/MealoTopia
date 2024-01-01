@@ -24,4 +24,5 @@
     <string name="tvRv_DummyIngridientName">Dummy Ingridient Name</string>
     <string name="tvRv_DummyMeasure">(Dummy Measure)</string>
     <string name="tvToolbarTitle">Detail Meal</string>
+    <string name="tvAnnouncement">There is no bookmarked meal. Bookmark first from list of Meal</string>
 </resources>
